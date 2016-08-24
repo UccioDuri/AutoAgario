@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoAgario
 // @namespace    http://tampermonkey.net/
-// @version      0.2.0.1
+// @version      0.2.0.2
 // @description  Bot for Agario
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
@@ -17,7 +17,7 @@ debugger;
 console.log('Inizia AutoAgario2');
 
     var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
-    var urlScriptSupporto = 'https://raw.githubusercontent.com/UccioDuri/AutoAgario/master/AutoAgarioScript.js';
+    var urlScriptSupporto = 'https://rawgit.com/UccioDuri/AutoAgario/master/AutoAgarioScript.js';
     var Contenitore;
     var ScriptSupporto;
 
