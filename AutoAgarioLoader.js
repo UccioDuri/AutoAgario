@@ -6,6 +6,7 @@
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
 // @grant        none
+// @updateURL    
 // ==/UserScript==
 
 debugger;
