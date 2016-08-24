@@ -1,10 +1,12 @@
 var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
-var Contenitore;
+var ContenitoreScript;
+var ContenitoreDiv = document.getElementById('container');
 var ScriptDaModificare;
 var ScriptNuovo;
+var xhttp;
 var BackupTestoScript;
 var TestoScript;
-var xhttp;
+var StatoAutoAgario = false;
 var FintoMouseX;
 var FintoMouseY;
 
@@ -13,7 +15,7 @@ function TrovaScript() {
     for (var i = ScriptCaricati.length; i >= 0; i--) {
         if (ScriptCaricati[i] && ScriptCaricati[i].getAttribute('src') !== null && ScriptCaricati[i].getAttribute('src').indexOf(urlScriptDaModificare) != -1 ) {
             ScriptDaModificare = ScriptCaricati[i];
-            Contenitore = ScriptDaModificare.parentNode;
+            ContenitoreScript = ScriptDaModificare.parentNode;
 console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
             break;
         }
@@ -33,6 +35,12 @@ function ModificaScript() {
         BackupTestoScript = xhttp.responseText;
 console.log('Scaricato');
 
+        var EspRegQ = / *87 \!\=.*keyCode/;
+        var TestoTemp = BackupTestoScript.match(EspRegQ):
+        TestoTemp = TestoTemp[1];
+        var TestoTemp2 = TestoTemp.replace('87', '81'):
+        BackupTestoScript = BackupTestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
+
         var EspRegX = /[a-zA-Z0-9.]+\.clientX/g;
         var EspRegY = /[a-zA-Z0-9.]+\.clientY/g;
         TestoScript = BackupTestoScript.replace(EspRegX, 'FintoMouseX');
@@ -45,8 +53,9 @@ function CambiaScript() {
     ScriptNuovo = document.createElement("script");
     ScriptNuovo.type = 'text/javascript';
     ScriptNuovo.innerHTML = TestoScript;
-    Contenitore.removeChild(ScriptDaModificare);
-    Contenitore.appendChild(ScriptNuovo);
+    ContenitoreScript.removeChild(ScriptDaModificare);
+    ContenitoreScript.appendChild(ScriptNuovo);
+    StatoAutoAgario = true;
 console.log('Cambiato');
 }
 
@@ -54,12 +63,21 @@ function RipristinaScript() {
     ScriptDaModificare = document.createElement("script");
     ScriptDaModificare.type = 'text/javascript';
     ScriptDaModificare.innerHTML = BackupTestoScript;
-    Contenitore.removeChild(ScriptNuovo);
-    Contenitore.appendChild(ScriptDaModificare);
+    ContenitoreScript.removeChild(ScriptNuovo);
+    ContenitoreScript.appendChild(ScriptDaModificare);
+    StatoAutoAgario = false;
 console.log('Ripristinato');
+}
+
+CambiaStatoAutoAgario() {
+    if (StatoAutoAgario) {
+        RipristinaScript();
+    } else {
+        CambiaScript();
+    }
+    return true;
 }
 
 TrovaScript();
 RichiediScript();
-CambiaScript();
 //RipristinaScript();
