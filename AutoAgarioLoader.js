@@ -14,7 +14,7 @@ debugger;
 (function() {
     'use strict';
 
-console.log('Inizia AutoAgario2');
+console.log('Inizia AutoAgarioLoader');
 
     var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
     var urlScriptSupporto = 'https://rawgit.com/UccioDuri/AutoAgario/master/AutoAgarioScript.js';
