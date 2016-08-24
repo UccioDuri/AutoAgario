@@ -1,4 +1,4 @@
-console.log('Avviato AutoAgarioScript);
+console.log('Avviato AutoAgarioScript');
 
 var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
 var ContenitoreScript;
