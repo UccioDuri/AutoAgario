@@ -6,7 +6,7 @@
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
 // @grant        none
-// @updateURL    
+// @updateURL    https://raw.githubusercontent.com/UccioDuri/AutoAgario/master/AutoAgarioLoader.js
 // ==/UserScript==
 
 debugger;
