@@ -17,10 +17,10 @@ debugger;
 console.log('Inizia AutoAgario2');
 
     var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
-    var urlScriptSupporto = 'https://raw.githubusercontent.com/UccioDuri/AutoAgario/master/AutoAgarioScript.js'
+    var urlScriptSupporto = 'https://raw.githubusercontent.com/UccioDuri/AutoAgario/master/AutoAgarioScript.js';
     var Contenitore;
     var ScriptSupporto;
-    
+
     function TrovaScript() {
         var ScriptCaricati = document.getElementsByTagName('script');
         for (var i = ScriptCaricati.length; i >= 0; i--) {
@@ -42,5 +42,5 @@ console.log('Creato');
 
     TrovaScript();
     CreaScriptSupporto();
-    
+
 })();
