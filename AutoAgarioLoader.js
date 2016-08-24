@@ -7,6 +7,7 @@
 // @match        http://jeu.video/agario/iframe/*
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/UccioDuri/AutoAgario/master/AutoAgarioLoader.js
+// @homepage     https://www.twitch.tv/uccioduri
 // ==/UserScript==
 
 debugger;
