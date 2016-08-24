@@ -8,6 +8,7 @@
 // @grant        none
 // ==/UserScript==
 
+debugger;
 (function() {
     'use strict';
 
