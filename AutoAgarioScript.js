@@ -56,7 +56,7 @@ function ModificaScript() {
         TestoVarY = TestoScript.match(EspRegY)[0];
         TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoVarY + ')');
 //console.log('Modificato');
-TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\ndebugger;\n");
+//TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\ndebugger;\n");
 
         AvviaAutoAgario();
 }
