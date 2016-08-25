@@ -1,4 +1,4 @@
-debugger;
+//debugger;
 //console.log('Avviato AutoAgarioScript');
 
 var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
@@ -91,7 +91,7 @@ function CambiaStatoAutoAgario() {
 
         StatoAutoAgario = true;
     }
-console.log('Nuovo stato: ' + StatoAutoAgario);
+//console.log('Nuovo stato: ' + StatoAutoAgario);
     return true;
 }
 
@@ -100,7 +100,12 @@ function RicominciaPartita() {
         PulsanteChiudiPub.click();
     }
     PulsanteGioca.click();
-console.log('Riavviato');
+
+            AreaGioco = document.getElementById("canvas");
+        AreaGiocoX = AreaGioco.width;
+        AreaGiocoY = AreaGioco.height;
+
+//console.log('Riavviato');
 }
 
 function AggiornaPosizione() {
