@@ -19,6 +19,8 @@ var LoopRandom;
 var MaxTLoopRandom = 5000;
 var DivFinePartita = document.getElementById('overlays');
 var PulsanteGioca = document.getElementById('playBtn');
+var DivPubblicita = document.getElementById('interModal');
+var PulsanteChiudiPub = DivPubblicita.firstChild.firstChild.firstChild.firstChild;
 
 function TrovaScript() {
     var ScriptCaricati = document.getElementsByTagName('script');
@@ -94,6 +96,9 @@ console.log('Nuovo stato: ' + StatoAutoAgario);
 }
 
 function RicominciaPartita() {
+    if (DivPubblicita.style.display == 'block') {
+        PulsanteChiudiPub.click();
+    }
     PulsanteGioca.click();
 console.log('Riavviato');
 }
@@ -102,16 +107,20 @@ function AggiornaPosizione() {
     if (StatoAutoAgario) {
         if (DivFinePartita.style.display == 'block') {
             RicominciaPartita();
+
+            clearInterval(LoopRandom);
+            LoopRandom = setInterval(AggiornaPosizione, 500);
+        } else {
+
+            FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
+            FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
+
+            var e = new Event('mousemove');
+            AreaGioco.dispatchEvent(e);
+
+            clearInterval(LoopRandom);
+            LoopRandom = setInterval(AggiornaPosizione, Math.floor(Math.random() * MaxTLoopRandom));
         }
-
-        FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
-        FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
-
-        var e = new Event('mousemove');
-        AreaGioco.dispatchEvent(e);
-
-        clearInterval(LoopRandom);
-        LoopRandom = setInterval(AggiornaPosizione, Math.floor(Math.random() * MaxTLoopRandom));
     }
 }
 
