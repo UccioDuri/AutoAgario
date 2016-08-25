@@ -20,7 +20,7 @@ var MaxTLoopRandom = 5000;
 var DivFinePartita = document.getElementById('overlays');
 var PulsanteGioca = document.getElementById('playBtn');
 var DivPubblicita = document.getElementById('interModal');
-var PulsanteChiudiPub = DivPubblicita.firstChild.firstChild.firstChild.firstChild;
+var PulsanteChiudiPub = DivPubblicita.children[0].children[0].children[0].children[0];
 
 function TrovaScript() {
     var ScriptCaricati = document.getElementsByTagName('script');
