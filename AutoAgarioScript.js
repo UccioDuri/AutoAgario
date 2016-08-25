@@ -85,5 +85,6 @@ function AvviaAutoAgarioScript() {
 debugger;
     TrovaScript();
     RichiediScript();
-    RipristinaScript();
+    CambiaStatoAutoAgario();
+    CambiaStatoAutoAgario();
 }
