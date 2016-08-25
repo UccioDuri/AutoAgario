@@ -6,7 +6,6 @@ var ContenitoreScript;
 var ContenitoreDiv = document.getElementById('container');
 var ScriptDaModificare = null;
 var ScriptNuovo;
-//var xhttp;
 var TestoScript;
 var StatoAutoAgario = false;
 var FintoMouseX;
@@ -14,6 +13,8 @@ var FintoMouseY;
 var AreaGioco;
 var AreaGiocoX;
 var AreaGiocoY;
+var LoopRandom;
+var TLoopRandom = 1000;
 
 function TrovaScript() {
     var ScriptCaricati = document.getElementsByTagName('script');
@@ -34,21 +35,10 @@ function RichiediScript() {
         TestoScript = scriptContent;
         ModificaScript();
     });
-//    xhttp = new XMLHttpRequest();
-//    xhttp.onreadystatechange = ModificaScript;
-//    var Url = ScriptDaModificare.getAttribute('src');
-//    var Param = Url.split('?');
-//    Url = Param[0];
-//    Param = Param[1];
-//    xhttp.open("POST", Url, true);
-//    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//    xhttp.send(Param);
 console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
 }
 
 function ModificaScript() {
-//    if (xhttp.readyState == 4 && xhttp.status == 200) {
-//        BackupTestoScript = xhttp.responseText;
 console.log('Scaricato');
 
         var EspRegQ = / *87 \!\=.*keyCode/;
@@ -66,10 +56,6 @@ console.log('Scaricato');
 console.log('Modificato');
 
         AvviaAutoAgario();
-//    } else {
-//console.log('Scaricamento fallito. readyState = ' + xhttp.readyState + ', status = ' + xhttp.status);
-//        
-//    }
 }
 
 function AvviaAutoAgario() {
@@ -80,19 +66,31 @@ function AvviaAutoAgario() {
     ContenitoreScript.appendChild(ScriptNuovo);
     
     AreaGioco = document.getElementById("canvas");
-    AreaGiocoX = AreaGioco.style.width;
-    AreaGiocoY = AreaGioco.style.height;
 console.log('Avviato');
 }
 
 function CambiaStatoAutoAgario() {
-    StatoAutoAgario = !StatoAutoAgario;
+    if (StatoAutoAgario) {
+        clearInterval(LoopRandom);
+        StatoAutoAgario = false;
+    } else {
+        LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
+        StatoAutoAgario = true;
+    }
     return true;
 }
 
 function RicominciaPartita() {
     document.getElementById('playBtn').click();
 console.log('Riavviato');
+}
+
+function AggiornaPosizione() {
+    AreaGiocoX = AreaGioco.style.width;
+    AreaGiocoY = AreaGioco.style.height;
+    
+    FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
+    FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
 }
 
 TrovaScript();
