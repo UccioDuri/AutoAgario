@@ -57,7 +57,7 @@ console.log('Scaricato');
         TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoVarY + ')');
 console.log('Modificato');
 
-TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\nconsole.log('ID = (a.id)');\n");
+TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\nconsole.log('ID = ' + a.id + ')';\n");
 
         AvviaAutoAgario();
 }
