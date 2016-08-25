@@ -28,8 +28,6 @@ console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
     }
 }
 
-
-
 function RichiediScript() {
     $.get(ScriptDaModificare.getAttribute('src'), function(scriptContent) {BackupTestoScript = scriptContent; ModificaScript()});
 //    xhttp = new XMLHttpRequest();
@@ -103,4 +101,4 @@ function RicominciaPartita() {
 console.log('Riavviato');
 }
 
-//TrovaScript();
+TrovaScript();
