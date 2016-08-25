@@ -34,7 +34,7 @@ document.addEventListener("beforescriptexecute", function(e) {
 //            this.parentNode.removeChild(this);
 //        }
     }
-}
+}, false);
 
 function TrovaScript() {
     var ScriptCaricati = document.getElementsByTagName('script');
