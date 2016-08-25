@@ -21,6 +21,9 @@ var DivFinePartita = document.getElementById('overlays');
 var PulsanteGioca = document.getElementById('playBtn');
 var DivPubblicita = document.getElementById('interModal');
 var PulsanteChiudiPub = DivPubblicita.children[0].children[0].children[0].children[0];
+var DivLivello = document.getElementById('interModal');
+var PulsanteChiudiLvl = DivPubblicita.children[0].children[0].children[0].children[0];
+
 
 function TrovaScript() {
     var ScriptCaricati = document.getElementsByTagName('script');
@@ -99,11 +102,14 @@ function RicominciaPartita() {
     if (DivPubblicita.style.display == 'block') {
         PulsanteChiudiPub.click();
     }
+    if (DivLivello.style.display == 'block') {
+        PulsanteChiudiLvl.click();
+    }
     PulsanteGioca.click();
 
-            AreaGioco = document.getElementById("canvas");
-        AreaGiocoX = AreaGioco.width;
-        AreaGiocoY = AreaGioco.height;
+    AreaGioco = document.getElementById("canvas");
+    AreaGiocoX = AreaGioco.width;
+    AreaGiocoY = AreaGioco.height;
 
 //console.log('Riavviato');
 }
