@@ -40,8 +40,7 @@ console.log('Scaricato');
 
         var EspRegQ = / *87 \!\=.*keyCode/;
         var TestoTemp = BackupTestoScript.match(EspRegQ);
-        TestoTemp = TestoTemp[1];
-debugger;
+        TestoTemp = TestoTemp[0];
         var TestoTemp2 = TestoTemp.replace("87", '81');
         BackupTestoScript = BackupTestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
 
@@ -50,6 +49,11 @@ debugger;
         TestoScript = BackupTestoScript.replace(EspRegX, 'FintoMouseX');
         TestoScript = TestoScript.replace(EspRegY, 'FintoMouseY');
 console.log('Modificato');
+
+        CambiaScript();
+        RipristinaScript();
+
+console.log('Avviato');
     }
 }
 
@@ -84,7 +88,3 @@ console.log('Cambiato');
 
 TrovaScript();
 RichiediScript();
-CambiaScript();
-RipristinaScript();
-
-console.log('Avviato');
