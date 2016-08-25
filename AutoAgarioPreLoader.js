@@ -11,33 +11,29 @@
 // @run-at       document-start
 // ==/UserScript==
 
-//debugger;
-(function() {
-    'use strict';
-
+debugger;
 console.log('Inizia AutoAgarioPreLoader');
 
-    document.addEventListener("beforescriptexecute", function(e) {
+document.addEventListener("beforescriptexecute", function(e) {
 
-        src = e.target.src;
-        content = e.target.text;
+    src = e.target.src;
+    content = e.target.text;
 
-        if (src.search(urlScriptDaModificare) > -1) {
+    if (src.search(urlScriptDaModificare) > -1) {
 console.log('Trovato script');
-            // Stop original script
-            e.preventDefault();
-            e.stopPropagation();
-            window.jQuery(e.target).remove();
+        // Stop original script
+        e.preventDefault();
+        e.stopPropagation();
+        window.jQuery(e.target).remove();
 
-//            var script = document.createElement('script');
+//        var script = document.createElement('script');
 
-//            script.textContent = 'script you want';
+//        script.textContent = 'script you want';
 
-//            (document.head || document.documentElement).appendChild(script);
-//            script.onload = function() {
-//                this.parentNode.removeChild(this);
-//            }
-        }
-    }, false);
+//        (document.head || document.documentElement).appendChild(script);
+//        script.onload = function() {
+//            this.parentNode.removeChild(this);
+//        }
+    }
+}, true);
 
-})();
