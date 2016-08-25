@@ -21,6 +21,8 @@ function TrovaScript() {
             ScriptDaModificare = ScriptCaricati[i];
             ContenitoreScript = ScriptDaModificare.parentNode;
 console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
+
+            RichiediScript();
             break;
         }
     }
@@ -57,6 +59,9 @@ console.log('Scaricato');
 console.log('Modificato');
 
         AvviaAutoAgario();
+    } else {
+console.log('Scaricamento fallito. readyState = ' + xhttp.readyState + ', status = ' + xhttp.status);
+        
     }
 }
 
@@ -96,4 +101,3 @@ console.log('Riavviato');
 }
 
 TrovaScript();
-RichiediScript();
