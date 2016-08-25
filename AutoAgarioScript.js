@@ -17,6 +17,8 @@ var AreaGiocoX;
 var AreaGiocoY;
 var LoopRandom;
 var MaxTLoopRandom = 5000;
+var DivFinePartita = document.getElementById('overlays');
+var PulsanteGioca = document.getElementById('playBtn');
 
 function TrovaScript() {
     var ScriptCaricati = document.getElementsByTagName('script');
@@ -83,6 +85,8 @@ function CambiaStatoAutoAgario() {
         AreaGiocoX = AreaGioco.width;
         AreaGiocoY = AreaGioco.height;
 
+        AggiornaPosizione();
+
         StatoAutoAgario = true;
     }
 console.log('Nuovo stato: ' + StatoAutoAgario);
@@ -90,19 +94,22 @@ console.log('Nuovo stato: ' + StatoAutoAgario);
 }
 
 function RicominciaPartita() {
-    document.getElementById('playBtn').click();
+    PulsanteGioca.click();
 console.log('Riavviato');
 }
 
 function AggiornaPosizione() {
     if (StatoAutoAgario) {
-    
+        if (DivFinePartita.style.display == 'block') {
+            RicominciaPartita();
+        }
+
         FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
         FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
 
         var e = new Event('mousemove');
         AreaGioco.dispatchEvent(e);
-        
+
         clearInterval(LoopRandom);
         LoopRandom = setInterval(AggiornaPosizione, Math.floor(Math.random() * MaxTLoopRandom));
     }
