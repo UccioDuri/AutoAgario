@@ -57,8 +57,6 @@ console.log('Scaricato');
         TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoVarY + ')');
 console.log('Modificato');
 
-TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\ndebugger;\n");
-
         AvviaAutoAgario();
 }
 
@@ -97,6 +95,8 @@ function AggiornaPosizione() {
     
         FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
         FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
+
+        AreaGioco.mousemove();
     }
 }
 
