@@ -7,6 +7,8 @@ var ContenitoreDiv = document.getElementById('container');
 var ScriptDaModificare = null;
 var ScriptNuovo;
 var TestoScript;
+var TestoVarX;
+var TestoVarY;
 var StatoAutoAgario = false;
 var FintoMouseX;
 var FintoMouseY;
@@ -42,18 +44,20 @@ function ModificaScript() {
 console.log('Scaricato');
 
         var EspRegQ = / *87 \!\=.*keyCode/;
-        var TestoTemp = TestoScript.match(EspRegQ)[0];
-        var TestoTemp2 = TestoTemp.replace("87", "65");
-        TestoScript = TestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
+        TestoVarX = TestoScript.match(EspRegQ)[0];
+        TestoVarY = TestoVarX.replace("87", "65");
+        TestoScript = TestoScript.replace(TestoVarX, TestoVarY + ' || CambiaStatoAutoAgario();\n' + TestoVarX);
 
         var EspRegX = /[a-zA-Z0-9.]+\.clientX/g;
-        TestoTemp = TestoScript.match(EspRegX)[0];
-        TestoScript = TestoScript.replace(EspRegX, '(StatoAutoAgario ? FintoMouseX : ' + TestoTemp + ')');
+        TestoVarX = TestoScript.match(EspRegX)[0];
+        TestoScript = TestoScript.replace(EspRegX, '(StatoAutoAgario ? FintoMouseX : ' + TestoVarX + ')');
 
         var EspRegY = /[a-zA-Z0-9.]+\.clientY/g;
-        TestoTemp = TestoScript.match(EspRegY)[0];
-        TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoTemp + ')');
+        TestoVarY = TestoScript.match(EspRegY)[0];
+        TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoVarY + ')');
 console.log('Modificato');
+
+TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\nconsole.log('Vero mouse = (" + TestoVarX + ", " + TestoVarY + ")');\n");
 
         AvviaAutoAgario();
 }
@@ -66,15 +70,16 @@ function AvviaAutoAgario() {
     ContenitoreScript.appendChild(ScriptNuovo);
     
     AreaGioco = document.getElementById("canvas");
+LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
 console.log('Avviato');
 }
 
 function CambiaStatoAutoAgario() {
     if (StatoAutoAgario) {
-        clearInterval(LoopRandom);
+//        clearInterval(LoopRandom);
         StatoAutoAgario = false;
     } else {
-        LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
+//        LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
         StatoAutoAgario = true;
     }
     return true;
@@ -86,11 +91,14 @@ console.log('Riavviato');
 }
 
 function AggiornaPosizione() {
-    AreaGiocoX = AreaGioco.style.width;
-    AreaGiocoY = AreaGioco.style.height;
+    if (StatoAutoAgario) {
+        AreaGiocoX = AreaGioco.style.width;
+        AreaGiocoY = AreaGioco.style.height;
     
-    FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
-    FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
+        FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
+        FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
+console.log('FintoMouse = (' + FintoMouseX + ', ' + FintoMouseY + ')');
+    }
 }
 
 TrovaScript();
