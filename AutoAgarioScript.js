@@ -97,7 +97,9 @@ function AggiornaPosizione() {
         FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
         FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
 
-        $(document).trigger($.Event('mousemove'));
+        var e = $.Event('mousemove');
+        e.target = AreaGioco;
+        $(document).trigger(e);
     }
 }
 
