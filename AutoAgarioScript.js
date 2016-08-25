@@ -41,7 +41,8 @@ console.log('Scaricato');
         var EspRegQ = / *87 \!\=.*keyCode/;
         var TestoTemp = BackupTestoScript.match(EspRegQ);
         TestoTemp = TestoTemp[1];
-        var TestoTemp2 = TestoTemp.replace('87', '81');
+debugger;
+        var TestoTemp2 = TestoTemp.replace("87", '81');
         BackupTestoScript = BackupTestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
 
         var EspRegX = /[a-zA-Z0-9.]+\.clientX/g;
