@@ -57,7 +57,7 @@ console.log('Scaricato');
         TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoVarY + ')');
 console.log('Modificato');
 
-TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\nconsole.log('Vero mouse = (' + " + TestoVarX + " + ', ' + " + TestoVarY + " + ')');\n");
+TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\nconsole.log('ID = (a.id)');\n");
 
         AvviaAutoAgario();
 }
@@ -97,7 +97,6 @@ function AggiornaPosizione() {
     
         FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
         FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
-console.log('FintoMouse = (' + FintoMouseX + ', ' + FintoMouseY + '), AreaGioco = (' + AreaGiocoX + ', ' + AreaGiocoY + ')');
     }
 }
 
