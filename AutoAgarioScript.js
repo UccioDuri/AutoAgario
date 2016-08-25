@@ -28,22 +28,25 @@ console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
     }
 }
 
+
+
 function RichiediScript() {
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = ModificaScript;
-    var Url = ScriptDaModificare.getAttribute('src');
-    var Param = Url.split('?');
-    Url = Param[0];
-    Param = Param[1];
-    xhttp.open("POST", Url, true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send(Param);
+    $.get(ScriptDaModificare.getAttribute('src'), function(scriptContent) {BackupTestoScript = scriptContent; ModificaScript()});
+//    xhttp = new XMLHttpRequest();
+//    xhttp.onreadystatechange = ModificaScript;
+//    var Url = ScriptDaModificare.getAttribute('src');
+//    var Param = Url.split('?');
+//    Url = Param[0];
+//    Param = Param[1];
+//    xhttp.open("POST", Url, true);
+//    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//    xhttp.send(Param);
 console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
 }
 
 function ModificaScript() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-        BackupTestoScript = xhttp.responseText;
+//    if (xhttp.readyState == 4 && xhttp.status == 200) {
+//        BackupTestoScript = xhttp.responseText;
 console.log('Scaricato');
 
         var EspRegQ = / *87 \!\=.*keyCode/;
@@ -59,10 +62,10 @@ console.log('Scaricato');
 console.log('Modificato');
 
         AvviaAutoAgario();
-    } else {
-console.log('Scaricamento fallito. readyState = ' + xhttp.readyState + ', status = ' + xhttp.status);
-        
-    }
+//    } else {
+//console.log('Scaricamento fallito. readyState = ' + xhttp.readyState + ', status = ' + xhttp.status);
+//        
+//    }
 }
 
 function AvviaAutoAgario() {
