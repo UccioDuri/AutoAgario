@@ -41,7 +41,7 @@ console.log('Scaricato');
         var EspRegQ = / *87 \!\=.*keyCode/;
         var TestoTemp = BackupTestoScript.match(EspRegQ);
         TestoTemp = TestoTemp[0];
-        var TestoTemp2 = TestoTemp.replace("87", '81');
+        var TestoTemp2 = TestoTemp.replace("87", "65");
         BackupTestoScript = BackupTestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
 
         var EspRegX = /[a-zA-Z0-9.]+\.clientX/g;
@@ -84,6 +84,10 @@ console.log('Ripristinato');
 console.log('Cambiato');
     }
     return true;
+}
+
+function RicominciaPartita() {
+    document.getElementById('playBtn').click();
 }
 
 TrovaScript();
