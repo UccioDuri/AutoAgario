@@ -97,7 +97,7 @@ function AggiornaPosizione() {
     
         FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
         FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
-console.log('FintoMouse = (' + FintoMouseX + ', ' + FintoMouseY + ')');
+console.log('FintoMouse = (' + FintoMouseX + ', ' + FintoMouseY + '), AreaGioco = (' + AreaGiocoX + ', ' + AreaGiocoY + ')');
     }
 }
 
