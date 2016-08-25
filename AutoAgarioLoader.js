@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoAgario
 // @namespace    http://tampermonkey.net/
-// @version      0.2.0.6
+// @version      0.2.0.7
 // @description  Bot for Agario
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
@@ -34,7 +34,7 @@ console.log('Trovato: ' + ScriptCaricati[i].getAttribute('src'));
     function CreaScriptSupporto() {
         ScriptSupporto = document.createElement("script");
         ScriptSupporto.setAttribute('src', urlScriptSupporto);
-        ScriptSupporto.onload = callback;
+        ScriptSupporto.onload = AvviaAutoAgarioLoader;
         Contenitore.appendChild(ScriptSupporto);
 console.log('Creato');
     }
