@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         AutoAgarioPreLoader
 // @namespace    AutoAgarioByUccio
-// @version      0.0.0.4
+// @version      0.0.0.5
 // @description  Bot for Allkeyshop.com Agario
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
 // @grant        none
-// @updateURL    https://raw.githubusercontent.com/UccioDuri/AutoAgario/master/AutoAgarioPreLoader.js
+// @updateURL    https://github.com/UccioDuri/AutoAgario/raw/master/AutoAgarioPreLoader.user.js
 // @homepage     https://www.twitch.tv/uccioduri
 // @run-at       document-start
 // ==/UserScript==
