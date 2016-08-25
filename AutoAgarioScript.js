@@ -4,7 +4,7 @@ console.log('Avviato AutoAgarioScript');
 var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
 var ContenitoreScript;
 var ContenitoreDiv = document.getElementById('container');
-var ScriptDaModificare;
+var ScriptDaModificare = null;
 var ScriptNuovo;
 var xhttp;
 var BackupTestoScript;
@@ -81,6 +81,8 @@ CambiaStatoAutoAgario() {
     return true;
 }
 
-TrovaScript();
-RichiediScript();
-//RipristinaScript();
+function AvviaAutoAgarioScript() {
+    TrovaScript();
+    RichiediScript();
+    RipristinaScript();
+}
