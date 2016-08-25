@@ -29,9 +29,13 @@ console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
 function RichiediScript() {
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = ModificaScript;
-    xhttp.open("POST", ScriptDaModificare.getAttribute('src'), true);
-    //xhttp.setRequestHeader("dataType ", "application/x-www-form-urlencoded");
-    xhttp.send();
+    var Url = ScriptDaModificare.getAttribute('src');
+    var Param = Url.split('?');
+    Url = Param[0];
+    Param = Param[1];
+    xhttp.open("POST", Url, true);
+    xhttp.setRequestHeader("dataType ", "application/x-www-form-urlencoded");
+    xhttp.send(Param);
 console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
 }
 
@@ -51,6 +55,8 @@ console.log('Scaricato');
         TestoScriptNuovo = TestoScriptVecchio.replace(EspRegX, 'FintoMouseX');
         TestoScriptNuovo = TestoScriptNuovo.replace(EspRegY, 'FintoMouseY');
 console.log('Modificato');
+
+        AvviaAutoAgario();
     }
 }
 
@@ -91,4 +97,3 @@ console.log('Riavviato');
 
 TrovaScript();
 RichiediScript();
-AvviaAutoAgario();
