@@ -6,10 +6,8 @@ var ContenitoreScript;
 var ContenitoreDiv = document.getElementById('container');
 var ScriptDaModificare = null;
 var ScriptNuovo;
-var xhttp;
-var BackupTestoScript;
-var TestoScriptNuovo;
-var TestoScriptVecchio;
+//var xhttp;
+var TestoScript;
 var StatoAutoAgario = false;
 var FintoMouseX;
 var FintoMouseY;
@@ -29,7 +27,10 @@ console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
 }
 
 function RichiediScript() {
-    $.get(ScriptDaModificare.getAttribute('src'), function(scriptContent) {BackupTestoScript = scriptContent; ModificaScript()});
+    $.get(ScriptDaModificare.getAttribute('src'), function(scriptContent) {
+        TestoScript = scriptContent;
+        ModificaScript();
+    });
 //    xhttp = new XMLHttpRequest();
 //    xhttp.onreadystatechange = ModificaScript;
 //    var Url = ScriptDaModificare.getAttribute('src');
@@ -48,15 +49,17 @@ function ModificaScript() {
 console.log('Scaricato');
 
         var EspRegQ = / *87 \!\=.*keyCode/;
-        var TestoTemp = BackupTestoScript.match(EspRegQ);
-        TestoTemp = TestoTemp[0];
+        var TestoTemp = TestoScript.match(EspRegQ)[0];
         var TestoTemp2 = TestoTemp.replace("87", "65");
-        TestoScriptVecchio = BackupTestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
+        TestoScript = TestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
 
         var EspRegX = /[a-zA-Z0-9.]+\.clientX/g;
+        TestoTemp = TestoScript.match(EspRegX)[0];
+        TestoScript = TestoScript.replace(EspRegX, '(StatoAutoAgario ? FintoMouseX : ' + TestoTemp + ')');
+
         var EspRegY = /[a-zA-Z0-9.]+\.clientY/g;
-        TestoScriptNuovo = TestoScriptVecchio.replace(EspRegX, 'FintoMouseX');
-        TestoScriptNuovo = TestoScriptNuovo.replace(EspRegY, 'FintoMouseY');
+        TestoTemp = TestoScript.match(EspRegY)[0];
+        TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoTemp + ')');
 console.log('Modificato');
 
         AvviaAutoAgario();
@@ -69,30 +72,14 @@ console.log('Modificato');
 function AvviaAutoAgario() {
     ScriptNuovo = document.createElement("script");
     ScriptNuovo.type = 'text/javascript';
-    ScriptNuovo.innerHTML = TestoScriptVecchio;
+    ScriptNuovo.innerHTML = TestoScript;
     ContenitoreScript.removeChild(ScriptDaModificare);
     ContenitoreScript.appendChild(ScriptNuovo);
 console.log('Avviato');
 }
 
-function CambiaScript() {
-    ScriptNuovo.innerHTML = TestoScriptNuovo;
-    StatoAutoAgario = true;
-console.log('Cambiato');
-}
-
-function RipristinaScript() {
-    ScriptNuovo.innerHTML = TestoScriptVecchio;
-    StatoAutoAgario = false;
-console.log('Ripristinato');
-}
-
 function CambiaStatoAutoAgario() {
-    if (StatoAutoAgario) {
-        RipristinaScript();
-    } else {
-        CambiaScript();
-    }
+    StatoAutoAgario = !StatoAutoAgario;
     return true;
 }
 
