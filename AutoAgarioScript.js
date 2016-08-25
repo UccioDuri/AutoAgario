@@ -59,7 +59,6 @@ function CambiaScript() {
     ContenitoreScript.removeChild(ScriptDaModificare);
     ContenitoreScript.appendChild(ScriptNuovo);
     StatoAutoAgario = true;
-console.log('Cambiato');
 }
 
 function RipristinaScript() {
@@ -69,22 +68,22 @@ function RipristinaScript() {
     ContenitoreScript.removeChild(ScriptNuovo);
     ContenitoreScript.appendChild(ScriptDaModificare);
     StatoAutoAgario = false;
-console.log('Ripristinato');
 }
 
 function CambiaStatoAutoAgario() {
     if (StatoAutoAgario) {
         RipristinaScript();
+console.log('Ripristinato');
     } else {
         CambiaScript();
+console.log('Cambiato');
     }
     return true;
 }
 
-function AvviaAutoAgarioScript() {
-debugger;
-    TrovaScript();
-    RichiediScript();
-    CambiaStatoAutoAgario();
-    CambiaStatoAutoAgario();
-}
+TrovaScript();
+RichiediScript();
+CambiaScript();
+RipristinaScript();
+
+console.log('Avviato');
