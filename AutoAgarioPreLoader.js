@@ -8,6 +8,7 @@
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/UccioDuri/AutoAgario/master/AutoAgarioPreLoader.js
 // @homepage     https://www.twitch.tv/uccioduri
+// @run-at       document-start
 // ==/UserScript==
 
 //debugger;
