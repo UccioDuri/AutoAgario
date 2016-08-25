@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoAgarioPreLoader
 // @namespace    AutoAgarioByUccio
-// @version      0.0.0.6
+// @version      0.0.0.7
 // @description  Bot for Allkeyshop.com Agario
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
@@ -38,5 +38,5 @@ console.log('Trovato script');
 //            this.parentNode.removeChild(this);
 //        }
     }
-}, true);
+});
 
