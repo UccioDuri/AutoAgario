@@ -35,7 +35,6 @@ console.log('Trovato: ' + ScriptCaricati[i].getAttribute('src'));
     function CreaScriptSupporto() {
         ScriptSupporto = document.createElement("script");
         ScriptSupporto.setAttribute('src', urlScriptSupporto);
-        ScriptSupporto.onload = function() {AvviaAutoAgarioScript()};
         Contenitore.appendChild(ScriptSupporto);
 console.log('Creato');
     }
