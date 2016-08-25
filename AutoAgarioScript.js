@@ -68,16 +68,16 @@ function AvviaAutoAgario() {
     ContenitoreScript.appendChild(ScriptNuovo);
     
     AreaGioco = document.getElementById("canvas");
-LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
+//LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
 console.log('Avviato');
 }
 
 function CambiaStatoAutoAgario() {
     if (StatoAutoAgario) {
-//        clearInterval(LoopRandom);
+        clearInterval(LoopRandom);
         StatoAutoAgario = false;
     } else {
-//        LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
+        LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
         StatoAutoAgario = true;
     }
     return true;
