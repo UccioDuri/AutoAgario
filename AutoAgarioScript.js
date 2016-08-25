@@ -8,7 +8,8 @@ var ScriptDaModificare = null;
 var ScriptNuovo;
 var xhttp;
 var BackupTestoScript;
-var TestoScript;
+var TestoScriptNuovo;
+var TestoScriptVecchio;
 var StatoAutoAgario = false;
 var FintoMouseX;
 var FintoMouseY;
@@ -43,53 +44,51 @@ console.log('Scaricato');
         var TestoTemp = BackupTestoScript.match(EspRegQ);
         TestoTemp = TestoTemp[0];
         var TestoTemp2 = TestoTemp.replace("87", "65");
-        BackupTestoScript = BackupTestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
+        TestoScriptVecchio = BackupTestoScript.replace(TestoTemp, TestoTemp2 + ' || CambiaStatoAutoAgario();\n' + TestoTemp);
 
         var EspRegX = /[a-zA-Z0-9.]+\.clientX/g;
         var EspRegY = /[a-zA-Z0-9.]+\.clientY/g;
-        TestoScript = BackupTestoScript.replace(EspRegX, 'FintoMouseX');
-        TestoScript = TestoScript.replace(EspRegY, 'FintoMouseY');
+        TestoScriptNuovo = TestoScriptVecchio.replace(EspRegX, 'FintoMouseX');
+        TestoScriptNuovo = TestoScriptNuovo.replace(EspRegY, 'FintoMouseY');
 console.log('Modificato');
-
-        CambiaScript();
-        RipristinaScript();
-
-console.log('Avviato');
     }
 }
 
-function CambiaScript() {
+function AvviaAutoAgario() {
     ScriptNuovo = document.createElement("script");
     ScriptNuovo.type = 'text/javascript';
-    ScriptNuovo.innerHTML = TestoScript;
+    ScriptNuovo.innerHTML = TestoScriptVecchio;
     ContenitoreScript.removeChild(ScriptDaModificare);
     ContenitoreScript.appendChild(ScriptNuovo);
+console.log('Avviato');
+}
+
+function CambiaScript() {
+    ScriptNuovo.innerHTML = TestoScriptNuovo;
     StatoAutoAgario = true;
+console.log('Cambiato');
 }
 
 function RipristinaScript() {
-    ScriptDaModificare = document.createElement("script");
-    ScriptDaModificare.type = 'text/javascript';
-    ScriptDaModificare.innerHTML = BackupTestoScript;
-    ContenitoreScript.removeChild(ScriptNuovo);
-    ContenitoreScript.appendChild(ScriptDaModificare);
+    ScriptNuovo.innerHTML = TestoScriptVecchio;
     StatoAutoAgario = false;
+console.log('Ripristinato');
 }
 
 function CambiaStatoAutoAgario() {
     if (StatoAutoAgario) {
         RipristinaScript();
-console.log('Ripristinato');
     } else {
         CambiaScript();
-console.log('Cambiato');
     }
     return true;
 }
 
 function RicominciaPartita() {
     document.getElementById('playBtn').click();
+console.log('Riavviato');
 }
 
 TrovaScript();
 RichiediScript();
+AvviaAutoAgario();
