@@ -28,7 +28,8 @@ console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
 function RichiediScript() {
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = ModificaScript;
-    xhttp.open("GET", ScriptDaModificare.getAttribute('src'), true);
+    xhttp.open("POST", ScriptDaModificare.getAttribute('src'), true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send();
 console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
 }
