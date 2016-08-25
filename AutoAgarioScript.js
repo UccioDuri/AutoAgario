@@ -29,7 +29,7 @@ function RichiediScript() {
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = ModificaScript;
     xhttp.open("POST", ScriptDaModificare.getAttribute('src'), true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //xhttp.setRequestHeader("dataType ", "application/x-www-form-urlencoded");
     xhttp.send();
 console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
 }
