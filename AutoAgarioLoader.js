@@ -10,6 +10,7 @@
 // @homepage     https://www.twitch.tv/uccioduri
 // ==/UserScript==
 
+debugger;
 (function() {
     'use strict';
 
