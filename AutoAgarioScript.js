@@ -80,8 +80,8 @@ function CambiaStatoAutoAgario() {
         LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
         StatoAutoAgario = true;
     }
-    return true;
 console.log('Nuovo stato: ' + StatoAutoAgario);
+    return true;
 }
 
 function RicominciaPartita() {
@@ -97,9 +97,9 @@ function AggiornaPosizione() {
         FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
         FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
 
-        var e = $.Event('mousemove');
-        e.target = AreaGioco;
-        $(document).trigger(e);
+        var e = new Event('mousemove');
+        //e.target = AreaGioco;
+        AreaGioco.dispatchEvent(e);
     }
 }
 
