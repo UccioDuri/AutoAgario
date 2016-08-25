@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoAgarioPreLoader
 // @namespace    AutoAgarioByUccio
-// @version      0.0.0.1
+// @version      0.0.0.2
 // @description  Bot for Allkeyshop.com Agario
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
