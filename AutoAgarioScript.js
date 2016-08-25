@@ -11,6 +11,9 @@ var TestoScript;
 var StatoAutoAgario = false;
 var FintoMouseX;
 var FintoMouseY;
+var AreaGioco;
+var AreaGiocoX;
+var AreaGiocoY;
 
 function TrovaScript() {
     var ScriptCaricati = document.getElementsByTagName('script');
@@ -75,6 +78,10 @@ function AvviaAutoAgario() {
     ScriptNuovo.innerHTML = TestoScript;
     ContenitoreScript.removeChild(ScriptDaModificare);
     ContenitoreScript.appendChild(ScriptNuovo);
+    
+    AreaGioco = document.getElementById("canvas");
+    AreaGiocoX = AreaGioco.style.width;
+    AreaGiocoY = AreaGioco.style.height;
 console.log('Avviato');
 }
 
