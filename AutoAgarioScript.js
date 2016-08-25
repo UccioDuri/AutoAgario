@@ -1,5 +1,5 @@
 debugger;
-console.log('Avviato AutoAgarioScript');
+//console.log('Avviato AutoAgarioScript');
 
 var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
 var ContenitoreScript;
@@ -24,7 +24,7 @@ function TrovaScript() {
         if (ScriptCaricati[i] && ScriptCaricati[i].getAttribute('src') !== null && ScriptCaricati[i].getAttribute('src').indexOf(urlScriptDaModificare) != -1 ) {
             ScriptDaModificare = ScriptCaricati[i];
             ContenitoreScript = ScriptDaModificare.parentNode;
-console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
+//console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
 
             RichiediScript();
             break;
@@ -37,11 +37,11 @@ function RichiediScript() {
         TestoScript = scriptContent;
         ModificaScript();
     });
-console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
+//console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
 }
 
 function ModificaScript() {
-console.log('Scaricato');
+//console.log('Scaricato');
 
         var EspRegQ = / *87 \!\=.*keyCode/;
         TestoVarX = TestoScript.match(EspRegQ)[0];
@@ -55,7 +55,7 @@ console.log('Scaricato');
         var EspRegY = /[a-zA-Z0-9.]+\.clientY/g;
         TestoVarY = TestoScript.match(EspRegY)[0];
         TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoVarY + ')');
-console.log('Modificato');
+//console.log('Modificato');
 
         AvviaAutoAgario();
 }
@@ -68,8 +68,7 @@ function AvviaAutoAgario() {
     ContenitoreScript.appendChild(ScriptNuovo);
     
     AreaGioco = document.getElementById("canvas");
-//LoopRandom = setInterval(AggiornaPosizione, TLoopRandom);
-console.log('Avviato');
+//console.log('Avviato');
 }
 
 function CambiaStatoAutoAgario() {
@@ -81,6 +80,7 @@ function CambiaStatoAutoAgario() {
         StatoAutoAgario = true;
     }
     return true;
+console.log('Nuovo stato: ' + StatoAutoAgario);
 }
 
 function RicominciaPartita() {
