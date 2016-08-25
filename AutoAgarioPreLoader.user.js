@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoAgarioPreLoader
 // @namespace    AutoAgarioByUccio
-// @version      0.0.0.5
+// @version      0.0.0.6
 // @description  Bot for Allkeyshop.com Agario
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
@@ -17,7 +17,7 @@ var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.j
 
 console.log('Inizia AutoAgarioPreLoader');
 
-document.addEventListener("beforescriptexecute", function(e) {
+window.addEventListener('beforescriptexecute', function(e) {
 
     src = e.target.src;
     content = e.target.text;
