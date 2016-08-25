@@ -125,4 +125,4 @@ function RicominciaPartita() {
 console.log('Riavviato');
 }
 
-TrovaScript();
+//TrovaScript();
