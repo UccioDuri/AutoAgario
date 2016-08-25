@@ -21,7 +21,7 @@ var DivFinePartita = document.getElementById('overlays');
 var PulsanteGioca = document.getElementById('playBtn');
 var DivPubblicita = document.getElementById('interModal');
 var PulsanteChiudiPub = DivPubblicita.children[0].children[0].children[0].children[0];
-var DivLivello = document.getElementById('interModal');
+var DivLivello = document.getElementById('levelModal');
 var PulsanteChiudiLvl = DivPubblicita.children[0].children[0].children[0].children[0];
 
 
