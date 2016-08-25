@@ -33,7 +33,6 @@ console.log('Trovato: ' + ScriptCaricati[i].getAttribute('src'));
 
     function CreaScriptSupporto() {
         ScriptSupporto = document.createElement("script");
-        ScriptSupporto.type = 'text/javascript';
         ScriptSupporto.setAttribute('src', urlScriptSupporto);
         Contenitore.appendChild(ScriptSupporto);
 console.log('Creato');
