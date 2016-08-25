@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AutoAgario
-// @namespace    http://tampermonkey.net/
-// @version      0.2.0.9
-// @description  Bot for Agario
+// @namespace    AutoAgarioByUccio
+// @version      0.2.0.10
+// @description  Bot for Allkeyshop.com Agario
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
 // @grant        none
@@ -10,7 +10,7 @@
 // @homepage     https://www.twitch.tv/uccioduri
 // ==/UserScript==
 
-debugger;
+//debugger;
 (function() {
     'use strict';
 
