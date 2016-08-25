@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoAgario
 // @namespace    http://tampermonkey.net/
-// @version      0.2.0.8
+// @version      0.2.0.9
 // @description  Bot for Agario
 // @author       Uccio
 // @match        http://jeu.video/agario/iframe/*
