@@ -36,7 +36,7 @@ function RichiediScript() {
     Url = Param[0];
     Param = Param[1];
     xhttp.open("POST", Url, true);
-    xhttp.setRequestHeader("dataType ", "application/x-www-form-urlencoded");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(Param);
 console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
 }
