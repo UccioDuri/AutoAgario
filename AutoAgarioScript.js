@@ -82,6 +82,7 @@ CambiaStatoAutoAgario() {
 }
 
 function AvviaAutoAgarioScript() {
+debugger;
     TrovaScript();
     RichiediScript();
     RipristinaScript();
