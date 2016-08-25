@@ -9,7 +9,7 @@ var ScriptNuovo;
 var TestoScript;
 var TestoVarX;
 var TestoVarY;
-var StatoAutoAgario = false;
+var StatoAutoAgario = true;
 var FintoMouseX;
 var FintoMouseY;
 var AreaGioco;
@@ -56,6 +56,7 @@ function ModificaScript() {
         TestoVarY = TestoScript.match(EspRegY)[0];
         TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoVarY + ')');
 //console.log('Modificato');
+TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\ndebugger;\n");
 
         AvviaAutoAgario();
 }
