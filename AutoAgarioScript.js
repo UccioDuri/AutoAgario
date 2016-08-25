@@ -92,8 +92,8 @@ console.log('Riavviato');
 
 function AggiornaPosizione() {
     if (StatoAutoAgario) {
-        AreaGiocoX = AreaGioco.style.width;
-        AreaGiocoY = AreaGioco.style.height;
+        AreaGiocoX = AreaGioco.width;
+        AreaGiocoY = AreaGioco.height;
     
         FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
         FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
