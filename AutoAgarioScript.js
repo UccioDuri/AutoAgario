@@ -22,7 +22,7 @@ var PulsanteGioca = document.getElementById('playBtn');
 var DivPubblicita = document.getElementById('interModal');
 var PulsanteChiudiPub = DivPubblicita.children[0].children[0].children[0].children[0];
 var DivLivello = document.getElementById('levelModal');
-var PulsanteChiudiLvl = DivPubblicita.children[0].children[0].children[0].children[0];
+var PulsanteChiudiLvl = DivLivello.children[0].children[0].children[0].children[0];
 
 
 function TrovaScript() {
