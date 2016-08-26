@@ -80,19 +80,18 @@ function AvviaAutoAgario() {
 
 function CambiaStatoAutoAgario() {
     if (StatoAutoAgario) {
-        clearInterval(LoopRandom);
+        clearTimeout(LoopRandom);
 
         StatoAutoAgario = false;
     } else {
-        LoopRandom = setInterval(AggiornaPosizione, Math.floor(Math.random() * MaxTLoopRandom));
-
+        
         AreaGioco = document.getElementById("canvas");
         AreaGiocoX = AreaGioco.width;
         AreaGiocoY = AreaGioco.height;
 
-        AggiornaPosizione();
-
         StatoAutoAgario = true;
+
+        AggiornaPosizione();
     }
 //console.log('Nuovo stato: ' + StatoAutoAgario);
     return true;
@@ -119,18 +118,16 @@ function AggiornaPosizione() {
         if (DivFinePartita.style.display == 'block') {
             RicominciaPartita();
 
-            clearInterval(LoopRandom);
-            LoopRandom = setInterval(AggiornaPosizione, 500);
+            LoopRandom = setTimeout(AggiornaPosizione, 500);
         } else {
 
-            FintoMouseX = Math.floor(Math.random() * AreaGiocoX);
-            FintoMouseY = Math.floor(Math.random() * AreaGiocoY);
+            FintoMouseX = parseInt(Math.random() * AreaGiocoX);
+            FintoMouseY = parseInt(Math.random() * AreaGiocoY);
 
             var e = new Event('mousemove');
             AreaGioco.dispatchEvent(e);
 
-            clearInterval(LoopRandom);
-            LoopRandom = setInterval(AggiornaPosizione, Math.floor(Math.random() * MaxTLoopRandom));
+            LoopRandom = setTimeout(AggiornaPosizione, parseInt(Math.random() * MaxTLoopRandom));
         }
     }
 }
