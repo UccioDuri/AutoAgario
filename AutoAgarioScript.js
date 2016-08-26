@@ -57,11 +57,11 @@ function ModificaScript() {
 
         var EspRegX = /[a-zA-Z0-9.]+\.clientX/g;
         TestoVarX = TestoScript.match(EspRegX)[0];
-        TestoScript = TestoScript.replace(EspRegX, '(StatoAutoAgario ? FintoMouseX : ' + TestoVarX + ')');
+        TestoScript = TestoScript.replace(EspRegX, '((StatoAutoAgario === true) ? FintoMouseX : ' + TestoVarX + ')');
 
         var EspRegY = /[a-zA-Z0-9.]+\.clientY/g;
         TestoVarY = TestoScript.match(EspRegY)[0];
-        TestoScript = TestoScript.replace(EspRegY, '(StatoAutoAgario ? FintoMouseY : ' + TestoVarY + ')');
+        TestoScript = TestoScript.replace(EspRegY, '((StatoAutoAgario === true) ? FintoMouseY : ' + TestoVarY + ')');
 //console.log('Modificato');
 //TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\ndebugger;\n");
 
@@ -114,7 +114,7 @@ function RicominciaPartita() {
 }
 
 function AggiornaPosizione() {
-    if (StatoAutoAgario) {
+    if (StatoAutoAgario === true) {
         if (DivFinePartita.style.display == 'block') {
             RicominciaPartita();
 
