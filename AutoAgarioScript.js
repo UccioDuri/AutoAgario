@@ -50,7 +50,7 @@ function RichiediScript() {
 function ModificaScript() {
 //console.log('Scaricato');
 
-        var EspRegQ = / *87 \!\=.*keyCode/;
+        var EspRegQ = / *87 *\!\=.*keyCode/;
         TestoVarX = TestoScript.match(EspRegQ)[0];
         TestoVarY = TestoVarX.replace("87", "65");
         TestoScript = TestoScript.replace(TestoVarX, TestoVarY + ' || CambiaStatoAutoAgario();\n' + TestoVarX);
