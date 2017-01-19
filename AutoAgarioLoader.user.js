@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoAgario
 // @namespace    AutoAgarioByUccio
-// @version      0.2.1.3
+// @version      0.2.1.4
 // @description  Bot for Allkeyshop.com Agario
 // @author       Uccio
 // @match        https://jeu.video/agario/iframe/*
@@ -16,7 +16,7 @@
 
 console.log('Inizia AutoAgarioLoader');
 
-    var urlScriptDaModificare = 'http://jeu.video/agario/js/modes/iframe/agario_en.js';
+    var urlScriptDaModificare = 'https://jeu.video/agario/js/modes/iframe/agario_en.js';
     var urlScriptSupporto = 'https://rawgit.com/UccioDuri/AutoAgario/master/AutoAgarioScript.js';
     var Contenitore;
     var ScriptSupporto;
