@@ -37,6 +37,7 @@ console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
             break;
         }
     }
+console.log('ERRORE!! Script NON Trovato!');
 }
 
 function RichiediScript() {
