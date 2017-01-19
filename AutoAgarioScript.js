@@ -31,7 +31,7 @@ function TrovaScript() {
         if (ScriptCaricati[i] && ScriptCaricati[i].getAttribute('src') !== null && ScriptCaricati[i].getAttribute('src').indexOf(urlScriptDaModificare) != -1 ) {
             ScriptDaModificare = ScriptCaricati[i];
             ContenitoreScript = ScriptDaModificare.parentNode;
-//console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
+console.log('Trovato: ' + ScriptDaModificare.getAttribute('src'));
 
             RichiediScript();
             break;
@@ -44,11 +44,11 @@ function RichiediScript() {
         TestoScript = scriptContent;
         ModificaScript();
     });
-//console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
+console.log('Richiesto: ' + ScriptDaModificare.getAttribute('src'));
 }
 
 function ModificaScript() {
-//console.log('Scaricato');
+console.log('Scaricato');
 
         var EspRegQ = / *87 *\!\=.*?keyCode/;
         TestoVarX = TestoScript.match(EspRegQ)[0];
@@ -62,7 +62,7 @@ function ModificaScript() {
         var EspRegY = /[a-zA-Z0-9.]+\.clientY/g;
         TestoVarY = TestoScript.match(EspRegY)[0];
         TestoScript = TestoScript.replace(EspRegY, '((StatoAutoAgario === true) ? FintoMouseY : ' + TestoVarY + ')');
-//console.log('Modificato');
+console.log('Modificato');
 //TestoScript = TestoScript.replace(/mousemove\: function \(a\) \{/, "mousemove: function (a) {\ndebugger;\n");
 
         AvviaAutoAgario();
@@ -75,7 +75,7 @@ function AvviaAutoAgario() {
     ContenitoreScript.removeChild(ScriptDaModificare);
     ContenitoreScript.appendChild(ScriptNuovo);
     
-//console.log('Avviato');
+console.log('Avviato');
 }
 
 function CambiaStatoAutoAgario() {
@@ -93,7 +93,7 @@ function CambiaStatoAutoAgario() {
 
         AggiornaPosizione();
     }
-//console.log('Nuovo stato: ' + StatoAutoAgario);
+console.log('Nuovo stato: ' + StatoAutoAgario);
     return true;
 }
 
@@ -110,7 +110,7 @@ function RicominciaPartita() {
     AreaGiocoX = AreaGioco.width;
     AreaGiocoY = AreaGioco.height;
 
-//console.log('Riavviato');
+console.log('Riavviato');
 }
 
 function AggiornaPosizione() {
